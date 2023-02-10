@@ -1,0 +1,117 @@
+.container {
+  display: flex;
+  position: relative;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cherry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  background-color: var(--pink);
+  color: var(--themeRed);
+  padding: 1rem;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 2rem;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.smallText {
+  width: 70%;
+  color: var(--grey);
+  font-weight: 600;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+}
+
+.right {
+  position: relative;
+}
+
+/* todo:might need look */
+.heroImage {
+  width: 38rem;
+  /* margin-top: -4rem; */
+  position: absolute;
+  top: -2rem;
+  left: -5rem;
+}
+
+.contactUs {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: max-content;
+  padding: 1rem;
+  border-radius: 5rem;
+  top: 6rem;
+  left: -6rem;
+  background-color: #ffffff;
+  box-shadow: var(--shadow);
+  color: var(--themeRed);
+}
+
+.contactUs > div {
+  background: rgb(59 208 59);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactUs:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.pizza {
+  width: max-content;
+  display: flex;
+  gap: 1rem;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  position: absolute;
+  bottom: 4rem;
+  left: 19rem;
+}
+
+.pizza > :nth-child(1) {
+  width: 6rem;
+  height: 4rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.pizza > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.pizza:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
