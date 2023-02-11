@@ -6,6 +6,9 @@ import Slider from "@/component/Slider";
 import Footer from "@/component/Footer";
 import Banner from "@/component/Banner";
 import AllProducts from "@/component/AllProducts";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   return (
@@ -34,6 +37,7 @@ export default function Home() {
           <AllProducts />
         </main>
       </Layout>
+      <ToastContainer />
     </>
   );
 }

@@ -2,6 +2,8 @@ import Layout from "@/component/Layout";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import LeftArrow from "../../public/arrowLeft.png";
 import RightArrow from "../../public/arrowRight.png";
@@ -44,44 +46,48 @@ function product() {
       const initialCart = [newQuantities];
       setCart(initialCart);
       localStorage.setItem("cartItems", JSON.stringify(initialCart));
-      console.log("new data");
+
+      if (initialCart) {
+        toast("Product Added Cart", {
+          position: "top-center",
+          autoClose: 2000,
+        });
+      }
 
       // return;
     } else {
       setCart(savedCart);
-      console.log(cart);
 
       const existingItem = cart.find((cartItem) => cartItem.id === item.id);
 
       if (existingItem) {
-        existingItem.quantities = quantity;
-        console.log("yes");
+        const objIndex = cart.findIndex((obj) => obj.id == existingItem.id);
+
+        //Log object to Console.
+        console.log("Before update: ", cart[objIndex]);
+        console.log("Before update: ", objIndex);
+
+        //Update object's name property.
+        cart[objIndex].quantities = quantity;
+
+        toast("Product quantities updated", {
+          position: "top-center",
+          autoClose: 2000,
+        });
       } else {
-        const cartCopy = [...savedCart, item];
+        const cardNewQuantities = Object.assign(item, { quantities: quantity });
+        const cartCopy = [...savedCart, cardNewQuantities];
 
         localStorage.setItem("cartItems", JSON.stringify(cartCopy));
+        if (cartCopy) {
+          toast("Product Added Cart", {
+            position: "top-center",
+            autoClose: 2000,
+          });
+        }
       }
       // localStorage.setItem("cartItems", JSON.stringify(cart));
     }
-
-    // setCart(savedCart);
-    // console.log(cart);
-
-    // const existingItem = cart.find((cartItem) => cartItem.id === item.id);
-
-    // if (existingItem) {
-    //   existingItem.quantities += 1;
-    //   console.log("yes");
-    // } else {
-    //   const cartCopy = [...cart, item];
-
-    //   setCart(cartCopy);
-    //   console.log("no", cart);
-    //   console.log(cartCopy);
-    // }
-
-    // localStorage.setItem("cartItems", JSON.stringify(cart));
-    // console.log("existing", cart);
   };
 
   return (
@@ -128,6 +134,7 @@ function product() {
           </button>
         </div>
       </div>
+      <ToastContainer />
     </Layout>
   );
 }
