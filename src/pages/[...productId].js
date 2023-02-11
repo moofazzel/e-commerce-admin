@@ -74,6 +74,7 @@ function product() {
           position: "top-center",
           autoClose: 2000,
         });
+        return;
       } else {
         const cardNewQuantities = Object.assign(item, { quantities: quantity });
         const cartCopy = [...savedCart, cardNewQuantities];
